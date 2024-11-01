@@ -63,7 +63,7 @@ stages:
         zipAfterPublish: true
 
     - task: PowerShell@2
-      displayName: "Purge Cache"
+      displayName: "Purging Cache"
       inputs:
        targetType: 'inline'
        script: |
