@@ -120,6 +120,12 @@ stages:
           steps:
           - download: current
             artifact: drop
+          - task: PowerShell@2
+            displayName: "Purge Cache"
+            inputs:
+              targetType: 'inline'
+              script: |
+                az cache purge            
           - task: AzureWebApp@1
             displayName: 'Azure App Service Deploy: website'
             inputs:
