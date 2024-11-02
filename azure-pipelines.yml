@@ -71,11 +71,12 @@ stages:
         arguments: '--no-build --configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)/$(buildConfiguration)'
         zipAfterPublish: true
     - task: PowerShell@2
-         displayName: "Purge Cache"
-         inputs:
-           targetType: 'inline'
-           script: |
-             az cache purge     
+      displayName: "Purge Cache"
+      inputs:
+        targetType: 'inline'
+        script: |
+          az cache purge
+               
     - publish: '$(Build.ArtifactStagingDirectory)'
       artifact: drop
 
