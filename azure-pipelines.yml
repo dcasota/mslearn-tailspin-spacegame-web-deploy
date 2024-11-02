@@ -76,7 +76,7 @@ stages:
         targetType: 'inline'
         script: |
           az cache purge
-               
+
     - publish: '$(Build.ArtifactStagingDirectory)'
       artifact: drop
 
@@ -125,13 +125,7 @@ stages:
         deploy:
           steps:
           - download: current
-            artifact: drop
-          - task: PowerShell@2
-            displayName: "Purge Cache"
-            inputs:
-              targetType: 'inline'
-              script: |
-                az cache purge           
+            artifact: drop         
           - task: AzureWebApp@1
             displayName: 'Azure App Service Deploy: website'
             inputs:
