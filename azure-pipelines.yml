@@ -125,7 +125,7 @@ stages:
             inputs:
               targetType: 'inline'
               script: |
-                az cache purge            
+                az cache purge           
           - task: AzureWebApp@1
             displayName: 'Azure App Service Deploy: website'
             inputs:
